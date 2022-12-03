@@ -1,0 +1,146 @@
+:root {
+    /* O nome root é porque estou mexendo na raiz do programa*/
+    font-size: 16px;
+    /* Estou indicando que são váriáveis temas do site, pois sempre começam com hifens duplos */
+    --royal-blue-light: #94a0e5;
+    --royal-blue-dark: #3946d4;
+    --black: #000000;
+    --backgroud: #e2e3e9;
+}
+
+a {
+    color: rgb(255,255,255);
+    text-decoration: none;
+    letter-spacing: 6px;
+    
+}
+
+.nav
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--black);
+    height: 6rem;
+    padding: 1rem;
+    scroll-behavior: smooth;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+   
+    
+}
+
+
+.header img{
+    margin: 3%;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 0.5rem;
+    
+}
+
+.menu a {
+    display: block;
+    padding: 1rem;
+    /* Comando para facilitar para quem usa touch no celular, aumentando a letra*/
+    border-radius: 0.5rem;
+}
+
+.menu a:hover {
+    background: var(--royal-blue-dark);
+   
+
+}
+
+.label-menu,
+.checkbox {
+    display: none;
+}
+
+@media (max-width: 1344px) {
+    .menu {
+        display: block;
+        position: fixed;
+        top: 4.6875rem;
+        margin-right: 10%;
+        background: var(--royal-blue-light);
+        text-align: center;
+        width: 100%;
+        height: 0;
+        z-index: 1;
+        /* Só temos um valor para ficar por cima*/
+        visibility: hidden;
+        overflow-y: hidden;
+        transition: 0.5s;
+    }
+
+    .menu a {
+        
+
+        border-bottom: 0.0625rem solid rgba(255,255,255);
+        border-radius: 0;
+
+    }
+
+    .label-menu {
+        display: flex;
+        gap: 0.5rem;
+        color: var(--white);
+        padding: 1rem 0;
+        cursor: pointer;
+        position: fixed;
+        text-align: center;
+        list-style: none;
+
+    }
+
+    .hamburger {
+        border-top: 0.125rem solid;
+        color: white;
+        
+        
+    }
+    .nav img{
+        margin-left: 70%;
+        padding: 2px;
+        position: fixed;
+        
+    }
+
+    .hamburger::after,
+    .hamburger::before {
+        content: " ";
+        display: block;
+        width: 1.25rem;
+        height: 0.125rem;
+        background: currentColor;
+        margin-top: 0.3125rem;
+        
+        transition: 0.3s;
+    }
+
+    .checkbox:checked~.menu {
+        height: calc(100vh - 4.6875rem);
+        visibility: visible;
+        overflow-y: auto;
+    }
+
+    .checkbox:checked~.label-menu .hamburger {
+        border-top-color: transparent;
+    }
+
+    .checkbox:checked~.label-menu .hamburger::before {
+        transform: rotate(135deg);
+    }
+
+    .checkbox:checked~.label-menu .hamburger::after {
+        transform: rotate(-135deg);
+        top: -0.4375rem;
+    }
+}
+
+
